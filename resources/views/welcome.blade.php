@@ -11,14 +11,28 @@
 
 <body>
     <div class="container py-5">
-        <header>
-            <div class="d-flex justify-content-center">
-                <h1>Ciao Classe 110</h1>
-            </div>
-        </header>
+<h1>I treni di oggi</h1>
+<div>
+    <div class="row">
+    @foreach ($trains as $train)
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+            <h5 class="card-title">{{ $train['company'] }}</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary d-flex">
+                <div>{{ $train['departure_station'] }} -</div>
+                <div> {{ $train['arrival_station'] }}</div>
+            </h6>
+            <p class="card-text">Il giorno {{ $train['departure_date'] }}</p>
+            <p class="card-text">Dalle {{ $train['departure_time'] }}</p>
+            <p class="card-text">Alle {{ $train['arrival_time'] }}</p>
 
-        <img src="{{ Vite::asset('resources/img/duck.jpg') }}" alt="">
+        </div>
     </div>
+    </div>
+    @endforeach
+    </div>
+</div>
 
 </body>
 
